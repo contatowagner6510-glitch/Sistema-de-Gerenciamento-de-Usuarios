@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Lista de Usuários</h1>
+    </header>
+
+    <main>
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-usuarios">
+                    <!-- Os dados serão inseridos aqui pelo JavaScript -->
+                </tbody>
+            </table>
+
+            <div class="actions">
+                <button id="btnNovo" onclick="window.location.href='cadastro.html'">
+                    Cadastrar novo usuário
+                </button>
+                <button id="btnRecarregar" style="margin-left: 10px;">
+                    Recarregar lista
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Todos os direitos reservados a Wagner Gustavo Ribeiro Batista © 2026</p>
+    </footer>
+
+    <script src="./js/lista.js"></script>
+</body>
+
+</html>

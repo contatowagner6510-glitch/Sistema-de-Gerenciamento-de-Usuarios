@@ -1,0 +1,413 @@
+/* ===== RESET E BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-color: #2f3e46;
+    --secondary-color: #52796f;
+    --accent-color: #84a98c;
+    --light-color: #cad2c5;
+    --text-color: #333;
+    --text-light: #fff;
+    --error-color: #e63946;
+    --success-color: #2a9d8f;
+    --border-color: #ddd;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* ===== ESTRUTURA GERAL ===== */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f1f3f5 0%, #e9ecef 100%);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: linear-gradient(to right, var(--primary-color), #354f52);
+    color: var(--text-light);
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ===== CONTEÚDO CENTRAL ===== */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+}
+
+/* ===== CARD (FORM OU TABELA) ===== */
+.card {
+    background: var(--text-light);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== TABELA ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+thead {
+    background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+    color: var(--text-light);
+}
+
+th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+tbody tr:hover {
+    background-color: rgba(132, 169, 140, 0.1);
+}
+
+td {
+    padding: 1rem;
+    border: none;
+    vertical-align: middle;
+}
+
+/* ===== COLUNAS ESPECÍFICAS ===== */
+td:nth-child(1) { /* Nome */
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+td:nth-child(2) { /* Email */
+    color: #555;
+    font-size: 0.95rem;
+}
+
+td:nth-child(3) { /* Telefone */
+    font-family: 'Courier New', monospace;
+    color: #666;
+}
+
+td:nth-child(4) { /* Ações */
+    min-width: 150px;
+}
+
+/* ===== BOTÕES DA TABELA ===== */
+button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Botão Editar */
+button.editar, 
+button:first-of-type:not([type="submit"]):not([type="button"]) {
+    background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+    color: white;
+    margin-right: 0.5rem;
+}
+
+button.editar:hover {
+    background: linear-gradient(to right, #476a60, #759b7d);
+}
+
+/* Botão Excluir */
+button.excluir, 
+button:nth-of-type(2):not([type="submit"]):not([type="button"]) {
+    background: linear-gradient(to right, #e63946, #ff6b6b);
+    color: white;
+}
+
+button.excluir:hover {
+    background: linear-gradient(to right, #d32f2f, #ff5252);
+}
+
+/* Botões de ação principal */
+.actions button {
+    background: linear-gradient(to right, var(--primary-color), #3a5a40);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    margin: 0 0.5rem;
+}
+
+.actions button:hover {
+    background: linear-gradient(to right, #253238, #2d4739);
+}
+
+/* ===== FORMULÁRIO ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+}
+
+input[type="text"],
+input[type="email"] {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: #f8f9fa;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(132, 169, 140, 0.2);
+}
+
+/* ===== BOTÕES DO FORMULÁRIO ===== */
+input[type="submit"],
+input[type="button"] {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 0.5rem;
+}
+
+input[type="submit"] {
+    background: linear-gradient(to right, var(--success-color), #4cb5ab);
+    color: white;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(to right, #248277, #3a9a8f);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3);
+}
+
+input[type="button"] {
+    background: linear-gradient(to right, #6c757d, #868e96);
+    color: white;
+    margin-left: 0.5rem;
+}
+
+input[type="button"]:hover {
+    background: linear-gradient(to right, #5a6268, #727b84);
+    transform: translateY(-2px);
+}
+
+/* ===== AÇÕES (BOTÕES ABAIXO DA TABELA) ===== */
+.actions {
+    margin-top: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* ===== MENSAGENS ===== */
+.mensagem-carregamento,
+.mensagem-vazia,
+.mensagem-erro {
+    text-align: center;
+    padding: 2rem;
+    font-style: italic;
+    color: #666;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.mensagem-erro {
+    color: var(--error-color);
+    background-color: rgba(230, 57, 70, 0.1);
+    border-left: 4px solid var(--error-color);
+}
+
+.mensagem-vazia a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.mensagem-vazia a:hover {
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: linear-gradient(to right, var(--primary-color), #354f52);
+    color: var(--text-light);
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+footer p {
+    opacity: 0.9;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .card {
+        padding: 1.5rem;
+        max-width: 95%;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    table {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    .actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .actions button {
+        width: 100%;
+        margin: 0.25rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 1rem;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    form {
+        gap: 1rem;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="submit"],
+    input[type="button"] {
+        padding: 0.6rem;
+    }
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+tbody tr {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* ===== ESTADOS ===== */
+button:disabled,
+input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+button:disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* ===== ÍCONES (se quiser usar emojis como ícones) ===== */
+button::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
+
+button.editar::before {
+    content: '✏️';
+}
+
+button.excluir::before {
+    content: '🗑️';
+}

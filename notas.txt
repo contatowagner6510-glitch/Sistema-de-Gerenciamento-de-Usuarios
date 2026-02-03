@@ -1,0 +1,5 @@
+BACKEND (MODEL E CONTROLLER) FINALIZADOS!!!!
+
+falta ligar o front pelo js dos htmls e depois melhorar o css.
+
+planos futuros: talvez implementar uma nova tabela de tarefas onde cada usuario pode ter varias tarefas
