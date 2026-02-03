@@ -1,12 +1,25 @@
+# Sistema de Gerenciamento de Usuários
 
-# 🔧 **README.md Pronto**
+Sistema CRUD completo para gerenciamento de usuários desenvolvido com JavaScript puro. Backend em Node.js com Express e Sequelize conectado a banco MySQL, frontend sem frameworks utilizando HTML, CSS e JavaScript vanilla. API REST com todas as operações (GET, POST, PUT, DELETE) e interface responsiva com tabela dinâmica, formulário integrado e validações em tempo real.
 
-Crie um arquivo `README.md` na raiz do projeto com essa descrição. Inclua também:
+## Tecnologias
 
-## **Badges (opcional)**
-```markdown
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
-![Node.js](https://img.shields.io/badge/Node.js-18-green)
-![Express](https://img.shields.io/badge/Express.js-4.18-lightgrey)
-![MySQL](https://img.shields.io/badge/MySQL-8.0-blue)
-![License](https://img.shields.io/badge/License-MIT-blue)
+- **Backend**: Node.js, Express, Sequelize, MySQL
+- **Frontend**: HTML5, CSS3, JavaScript Vanilla
+- **API**: RESTful, JSON
+- **Banco de Dados**: MySQL com ORM
+
+## Funcionalidades
+
+- Cadastro, listagem, edição e exclusão de usuários
+- Interface responsiva e moderna
+- Validação de formulários
+- Comunicação assíncrona com API
+- Tratamento de erros
+
+## Estrutura
+
+- Arquitetura cliente-servidor
+- Separação entre frontend e backend
+- Código modular e organizado
+- Design patterns MVC
