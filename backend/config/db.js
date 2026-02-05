@@ -3,9 +3,9 @@ const { Sequelize } = require("sequelize");
 
 //BANCO DE DADOS
 const sequelize = new Sequelize(
-  "bancousuario",
-  "root",
-  "",
+  "bancousuario", //bd nome
+  "root", //user
+  "", //senha
   {
     host:"localhost",
     dialect:"mysql"

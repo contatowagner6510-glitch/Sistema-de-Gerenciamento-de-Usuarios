@@ -1,5 +1,5 @@
 const { DELETE } = require("sequelize/lib/query-types");
-const usuario = require("../models/usersModels");
+const {User} = require("../models/index");
 
 const usersController = {
 // =============================================================== CREATE// CRIAR
@@ -15,25 +15,26 @@ const usersController = {
             })
         }
         //criando usuario //await variavel const do MODELS com os campos
-        const userCreate = await usuario.create({
+        const userCreate = await User.create({
             nome,
             email,
             telefone
         })
-        return res.status(201).json('usuarioCriado')
+        return res.status(201).json('UserCriado')
 
     //capitando erros
   } catch (error) {
     console.error("ERRO: ",error);
     return res.status(500).json({ mensagem: 'Erro ao criar usuário'})
   }
+
    },
 
    //======================================================= FIND ALL// LISTAR TODOS
-   async findAll(req, res) {
+   async findAll(req, res,  ) { 
   try {
         //procurando usuarios 
-        const userFindAll = await usuario.findAll()
+        const userFindAll = await User.findAll({include : 'tasks'})
 
         //validação caso não haja usuarios
         if(!userFindAll||!userFindAll.length ===0){
@@ -53,32 +54,33 @@ const usersController = {
    },
 
     //======================================================= FIND BY ID // ENCONTRAR PELO ID
-   async findByID(req, res) {
+async findByID(req, res) {
   try {
-        //procurando usuarios //await variavel const do MODELS com os campos
-        
+    console.log('params:', req.params);
+    const { id } = req.params;
 
-        console.log('params:', req.params);
-        const {id} = req.params
-        
-        //aqui você tem que passar o id como parametro da função findbypk
-        const user= await usuario.findByPk(id)
-        //validação
-        if(!user){
-            return res.status(400).json({
-                mensagem:" usuario não encontrado"
-            })
-        }
+    // busca pelo ID
+    const user = await User.findByPk(id);
 
-       return res.status(200).json({
-      mensagem: "usuario encontrado", dados: user
-        });}
-          //em caso de erro
-        catch (error) {
-        console.error("ERRO: ",error);
-         return res.status(500).json({ mensagem: 'Erro ao buscar usuario'})
+    // validação
+    if (!user) {
+      return res.status(404).json({
+        mensagem: "Usuário não encontrado"
+      });
     }
-   },
+
+    return res.status(200).json({
+      mensagem: "Usuário encontrado",
+      dados: user
+    });
+
+  } catch (error) {
+    console.error("ERRO: ", error);
+    return res.status(500).json({
+      mensagem: "Erro ao buscar usuário"
+    });
+  }
+},
 
    
    //======================================================= UPDATE // ATUALIZAR
@@ -101,7 +103,7 @@ const usersController = {
         }
 
        //verifica se o usuario existe
-        const user= await usuario.findByPk(id)
+        const user= await User.findByPk(id)
         if(!user){
             return res.status(400).json({
                 mensagem:" usuario não encontrado"
@@ -134,14 +136,14 @@ const usersController = {
       
 
        //verifica se o usuario existe
-        const user= await usuario.findByPk(id)
+        const user= await User.findByPk(id)
         if(!user){
             return res.status(404).json({
                 mensagem:" usuario não encontrado"
             })
         }
 
-        await user.destroy(usuario)
+        await user.destroy(User)
 
 
        return res.status(200).json({
@@ -156,6 +158,7 @@ const usersController = {
 
 
 }
+console.log('User model:', User);
 
 
 module.exports = usersController

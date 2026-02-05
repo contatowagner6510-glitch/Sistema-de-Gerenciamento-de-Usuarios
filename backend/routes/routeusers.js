@@ -6,11 +6,11 @@ const usersController = require ('../controllers/usersController')
 
 
 
-router.post('/cadastro', usersController.create)
-router.get('/lista', usersController.findAll)
-router.get('/lista/:id', usersController.findByID)
-router.put('/cadastro/:id', usersController.update)
-router.delete('/cadastro/:id', usersController.delete)
+router.post('/', usersController.create)
+router.get('/', usersController.findAll)
+router.get('/:id', usersController.findByID)
+router.put('/:id', usersController.update)
+router.delete('/:id', usersController.delete)
 
 
 

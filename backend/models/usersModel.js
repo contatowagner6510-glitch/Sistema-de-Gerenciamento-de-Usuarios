@@ -1,9 +1,18 @@
 const {DataTypes} = require('sequelize')
 const sequelize = require ('../config/db');
 
+
+
 //craindo uma tabela no banco de dados pelo sequelize
 //por padrão, o sequelize já cria o id dde forma automatica para as tabelas
-const Users= sequelize.define('Usuario', {
+const User= sequelize.define('User', {
+
+  userId:{
+    type: DataTypes.INTEGER,
+    allowNull:false,
+    autoIncrement:true,
+    primaryKey:true
+  },
 
   nome: {
     type: DataTypes.STRING,
@@ -23,12 +32,14 @@ const Users= sequelize.define('Usuario', {
 
 }, {
   tableName: 'Users',
-  timestamps: true
-});
+  timestamps: true,
 
-Users.sync({force: false});
 
-module.exports = Users;
+})
+
+  
+
+module.exports = User;
 
 
 
