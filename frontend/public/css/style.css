@@ -70,7 +70,7 @@ main {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* ===== TABELA ===== */
+/* ===== TABELA (PÁGINA DE LISTA) ===== */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -411,3 +411,324 @@ button.editar::before {
 button.excluir::before {
     content: '🗑️';
 }
+
+/* ============================================== */
+/* ===== ESTILOS ESPECÍFICOS PARA TAREFAS ===== */
+/* ============================================== */
+
+/* Container do formulário de tarefas */
+.form-tarefa {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grupos de campos do formulário */
+.campo-form {
+    margin-bottom: 1.5rem;
+}
+
+.campo-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+}
+
+/* Inputs e textareas */
+.campo-form input[type="text"],
+.campo-form input[type="date"],
+.campo-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: #f8f9fa;
+}
+
+.campo-form textarea {
+    min-height: 100px;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.campo-form input[type="text"]:focus,
+.campo-form input[type="date"]:focus,
+.campo-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(132, 169, 140, 0.2);
+}
+
+/* Grupo de radio buttons - COM CORES DIFERENTES */
+.grupo-radio {
+    background-color: transparent;
+    padding: 1rem 0;
+    margin: 1.5rem 0;
+    border: none;
+}
+
+.grupo-radio p {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.opcoes-radio {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Opção SIM - Estilo padrão (verde) */
+.opcao-radio.sim {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    background-color: #f1f3f5; /* Cor padrão quando não selecionado */
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+/* Opção NÃO - Estilo padrão (vermelho) */
+.opcao-radio.nao {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    background-color: #f1f3f5; /* Cor padrão quando não selecionado */
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+/* Hover para ambas */
+.opcao-radio:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Quando SIM está selecionado - VERDE */
+.opcao-radio.sim.checked,
+.opcao-radio.sim input[type="radio"]:checked ~ * {
+    background-color: rgba(8, 255, 226, 0.15); /* Verde claro */
+    border-color: var(--success-color);
+}
+
+/* Quando NÃO está selecionado - VERMELHO */
+.opcao-radio.nao.checked,
+.opcao-radio.nao input[type="radio"]:checked ~ * {
+    background-color: rgba(246, 0, 20, 0.15); /* Vermelho claro */
+    border-color: var(--error-color);
+}
+
+/* Radio buttons - CORES DIFERENTES */
+.opcao-radio input[type="radio"] {
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    cursor: pointer;
+    border: 2px solid #adb5bd;
+    border-radius: 50%;
+    position: relative;
+    transition: var(--transition);
+    background-color: #f1f3f5; /* Cor do fundo do botão */
+}
+
+/* SIM selecionado - ponto VERDE */
+.opcao-radio.sim input[type="radio"]:checked {
+    border-color: var(--success-color);
+    background-color: var(--success-color);
+}
+
+.opcao-radio.sim input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* NÃO selecionado - ponto VERMELHO */
+.opcao-radio.nao input[type="radio"]:checked {
+    border-color: var(--error-color);
+    background-color: var(--error-color);
+}
+
+.opcao-radio.nao input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Labels com cores diferentes quando selecionados */
+.opcao-radio.sim input[type="radio"]:checked + label {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.opcao-radio.nao input[type="radio"]:checked + label {
+    color: var(--error-color);
+    font-weight: 600;
+}
+
+.opcao-radio label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: 500;
+    color: #495057;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+/* Campo de data */
+.campo-data {
+    position: relative;
+}
+
+.campo-data input[type="date"] {
+    padding-right: 2.5rem;
+}
+
+.campo-data::after {
+    content: '📅';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Botão específico de cadastro de tarefa */
+#BtnCad {
+    background: linear-gradient(to right, var(--success-color), #4cb5ab);
+    color: white;
+    width: 100%;
+    padding: 0.875rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 1.5rem 0 1rem 0;
+    transition: var(--transition);
+}
+
+#BtnCad:hover {
+    background: linear-gradient(to right, #248277, #3a9a8f);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3);
+}
+
+#BtnCad:active {
+    transform: translateY(0);
+}
+
+/* Botão Voltar na página de cadastro */
+#btnVoltar {
+    background: linear-gradient(to right, #6c757d, #868e96);
+    color: white;
+    width: 100%;
+    padding: 0.875rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#btnVoltar:hover {
+    background: linear-gradient(to right, #5a6268, #727b84);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+}
+
+/* Estados de validação */
+input:invalid,
+textarea:invalid {
+    border-color: var(--error-color);
+}
+
+input:valid:focus,
+textarea:valid:focus {
+    border-color: var(--success-color);
+}
+
+/* Placeholders estilizados */
+::placeholder {
+    color: #adb5bd;
+    opacity: 0.8;
+}
+
+/* Responsividade para formulário de tarefas */
+@media (max-width: 768px) {
+    .form-tarefa {
+        padding: 0 1rem;
+    }
+    
+    .opcoes-radio {
+        gap: 1rem;
+    }
+    
+    .opcao-radio {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .campo-form input[type="text"],
+    .campo-form input[type="date"],
+    .campo-form textarea {
+        padding: 0.625rem;
+        font-size: 0.95rem;
+    }
+    
+    .grupo-radio {
+        padding: 0.75rem;
+    }
+}
+
+/* Animações específicas para formulário */
+@keyframes slideInForm {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: slideInForm 0.4s ease-out;
+}
+
+/* Indicador de campo obrigatório */
+.campo-obrigatorio::after {
+    content: " *";
+    color: var(--error-color);
+}
+
+/* ============================================== */
+/* ===== FIM DOS ESTILOS PARA TAREFAS ===== */
+/* ============================================== */

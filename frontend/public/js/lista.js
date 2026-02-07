@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Busca usuários da API
     function carregarUsuarios() {
-        fetch('/lista')  // Chama rota GET /lista
+        fetch('/users')  // Chama rota GET /lista
             .then(resposta => resposta.json())  // Converte resposta para JSON
             .then(resultado => {
                 tbody.innerHTML = '';  // Limpa tabela
@@ -44,13 +44,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Botão Editar - vai para cadastro com ID
                     const btnEditar = document.createElement('button');
                     btnEditar.textContent = 'Editar';
-                    btnEditar.onclick = () => window.location.href = `cadastro.html?id=${usuario.id}`;
+                    btnEditar.onclick = () => window.location.href = `cadastro.html?id=${usuario.userId}`;
                     tdAcoes.appendChild(btnEditar);
                     
                     // Botão Excluir - chama função de exclusão
                     const btnExcluir = document.createElement('button');
                     btnExcluir.textContent = 'Excluir';
-                    btnExcluir.onclick = () => excluirUsuario(usuario.id, linha);
+                    btnExcluir.onclick = () => excluirUsuario(usuario.userId, linha);
                     tdAcoes.appendChild(btnExcluir);
                     
                     linha.appendChild(tdAcoes);
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Exclui usuário via API DELETE
     function excluirUsuario(id, linha) {
         if (confirm('Excluir este usuário?')) {
-            fetch(`/cadastro/${id}`, {  // Chama rota DELETE
+            fetch(`/users/${id}`, {  // Chama rota DELETE
                 method: 'DELETE'
             })
             .then(resposta => resposta.json())

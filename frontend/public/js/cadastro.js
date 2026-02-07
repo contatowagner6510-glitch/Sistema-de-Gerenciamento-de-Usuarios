@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (titulo) titulo.textContent = 'Editar Usuário';
         
         // Busca dados do usuário para preencher formulário
-        fetch(`/lista/${usuarioId}`)
+        fetch(`/users/${usuarioId}`)
             .then(resposta => resposta.json())
             .then(resultado => {
                 if (resultado.dados) {
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         try {
             // Define método: PUT para edição, POST para novo
-            const url = usuarioId ? `/cadastro/${usuarioId}` : '/cadastro';
+            const url = usuarioId ? `/users/${usuarioId}` : '/users';
             const metodo = usuarioId ? 'PUT' : 'POST';
             
             // Envia para API

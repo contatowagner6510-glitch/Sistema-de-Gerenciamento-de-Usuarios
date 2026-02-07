@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Tarefa</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Cadastrar Tarefa</h1>
+    </header>
+
+    <main>
+        <div class="card">
+            <form id="Form" class="form-tarefa">
+                <div class="campo-form">
+                    <label for="Nome" class="campo-obrigatorio">Nome da Tarefa</label>
+                    <input type="text" placeholder="Digite o nome da tarefa" id="Nome" required>
+                </div>
+
+                <div class="campo-form">
+                    <label for="Descrição" class="campo-obrigatorio">Descrição</label>
+                    <textarea placeholder="Descreva a tarefa em detalhes" id="Descrição" required></textarea>
+                </div>
+
+                <div class="grupo-radio">
+                    <p>Já foi Concluída?</p>
+                    <div class="opcoes-radio">
+                        <div class="opcao-radio sim">
+                            <input type="radio" id="Sim" name="concluida" value="SIM">
+                            <label for="Sim">Sim</label>
+                        </div>
+                        <div class="opcao-radio nao">
+                            <input type="radio" id="Nao" name="concluida" value="NÃO" checked>
+                            <label for="Nao">Não</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="campo-form campo-data">
+                    <label for="Prazo">Prazo</label>
+                    <input type="date" id="Prazo" min="2026-02-07">
+                </div>
+
+                <input type="submit" value="Cadastrar Tarefa" id="BtnCad">
+
+                <div class="actions">
+                    <button type="button" id="btnVoltar">Voltar para Lista</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>Todos os direitos reservados a Wagner Gustavo Ribeiro Batista © 2026</p>
+    </footer>
+
+    <script src="./js/cadastro.js"></script>
+</body>
+
+</html>

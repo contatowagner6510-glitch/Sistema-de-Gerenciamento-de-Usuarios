@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Lista de Tarefas do usuário X</h1>
+    </header>
+
+    <main>
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Concluida</th>
+                        <th>Prazo</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-tarefas">
+                    <!-- Os dados serão inseridos aqui pelo JavaScript -->
+                </tbody>
+            </table>
+
+            <div class="actions">
+                <button id="btnNovo" onclick="window.location.href='cadastrotask.html'">
+                    Cadastrar nova tarefa
+                </button>
+                <button id="btnRecarregar" style="margin-left: 10px;">
+                    Recarregar lista
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Todos os direitos reservados a Wagner Gustavo Ribeiro Batista © 2026</p>
+    </footer>
+
+    <script src="./js/lista.js"></script>
+</body>
+
+</html>
