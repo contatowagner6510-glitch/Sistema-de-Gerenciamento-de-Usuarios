@@ -1,6 +1,6 @@
 # Sistema de Gerenciamento de Usuários
 
-Sistema CRUD completo para gerenciamento de usuários desenvolvido com JavaScript puro. Backend em Node.js com Express e Sequelize conectado a banco MySQL, frontend sem frameworks utilizando HTML, CSS e JavaScript vanilla. API REST com todas as operações (GET, POST, PUT, DELETE) e interface responsiva com tabela dinâmica, formulário integrado e validações em tempo real.
+Sistema CRUD completo para gerenciamento de tarefas e usuários desenvolvido com JavaScript puro. Backend em Node.js com Express e Sequelize conectado a banco MySQL, frontend sem frameworks utilizando HTML, CSS e JavaScript vanilla. API REST com todas as operações (GET, POST, PUT, DELETE) e interface responsiva com tabela dinâmica, formulário integrado e validações em tempo real.
 
 ## Tecnologias
 
@@ -12,7 +12,7 @@ Sistema CRUD completo para gerenciamento de usuários desenvolvido com JavaScrip
 ## Funcionalidades
 
 - Cadastro, listagem, edição e exclusão de usuários
-- Interface responsiva e moderna
+- Cadastro, listagem, edição e exclusão de tarefas
 - Validação de formulários
 - Comunicação assíncrona com API
 - Tratamento de erros
