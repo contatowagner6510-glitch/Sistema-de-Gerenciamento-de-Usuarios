@@ -156,6 +156,37 @@ const TaskController = {
     }
    },
 
+   // =======================================================
+// LISTAR TAREFAS DE UM USUÁRIO ESPECÍFICO
+async findByUser(req, res) {
+  try {
+    const { userId } = req.params;
+
+    if (!userId) {
+      return res.status(400).json({
+        mensagem: "UserId não informado"
+      });
+    }
+
+    const tasks = await Task.findAll({
+      where: {
+        userId: userId
+      }
+    });
+
+    return res.status(200).json({
+      mensagem: "Tarefas do usuário",
+      dados: tasks
+    });
+
+  } catch (error) {
+    console.error("ERRO: ", error);
+    return res.status(500).json({
+      mensagem: "Erro ao buscar tarefas do usuário"
+    });
+  }
+}
+
 
 
 

@@ -12,6 +12,8 @@ router.get('/:id', tasksController.findByID)
 router.put('/:id', tasksController.update)
 router.delete('/:id', tasksController.delete)
 
+// listar tarefas de um usuário específico
+router.get('/user/:userId', tasksController.findByUser);
 
 
 

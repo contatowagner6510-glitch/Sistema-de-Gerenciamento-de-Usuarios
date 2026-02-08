@@ -23,3 +23,10 @@ Sistema CRUD completo para gerenciamento de tarefas e usuários desenvolvido com
 - Separação entre frontend e backend
 - Código modular e organizado
 - Design patterns MVC
+
+## Como executar?
+
+- Conecte um banco de dados no arquivo .env
+- Rode npm i
+- Rode npm run dev
+- No seu navegador busque por: http://localhost:3001

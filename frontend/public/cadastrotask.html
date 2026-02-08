@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Tarefa</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
-
 <body>
     <header>
-        <h1>Cadastrar Tarefa</h1>
+        <h1 id="titulo">Cadastrar Tarefa</h1>
     </header>
 
     <main>
@@ -42,13 +40,15 @@
 
                 <div class="campo-form campo-data">
                     <label for="Prazo">Prazo</label>
-                    <input type="date" id="Prazo" min="2026-02-07">
+                    <input type="date" id="Prazo">
                 </div>
 
-                <input type="submit" value="Cadastrar Tarefa" id="BtnCad">
+                <input type="submit" value="Salvar Tarefa" id="BtnCad">
 
                 <div class="actions">
-                    <button type="button" id="btnVoltar">Voltar para Lista</button>
+                    <button type="button" id="btnVoltar" onclick="voltarParaListaTarefas()">
+                        Voltar para Lista
+                    </button>
                 </div>
             </form>
         </div>
@@ -57,8 +57,20 @@
     <footer>
         <p>Todos os direitos reservados a Wagner Gustavo Ribeiro Batista © 2026</p>
     </footer>
-
-    <script src="./js/cadastro.js"></script>
+    
+    <script src="./js/cadastroTask.js"></script>
+    <script>
+        // Função para voltar à lista de tarefas mantendo o userId
+        function voltarParaListaTarefas() {
+            const params = new URLSearchParams(window.location.search);
+            const userId = params.get('userId');
+            
+            if (userId) {
+                window.location.href = 'listatask.html?userId=' + userId;
+            } else {
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
 </body>
-
 </html>

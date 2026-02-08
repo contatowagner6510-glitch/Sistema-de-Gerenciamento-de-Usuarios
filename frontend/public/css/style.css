@@ -1,717 +1,412 @@
-/* ===== RESET E BASE ===== */
+/* style.css - FUNDO MAIS ESCURO E ELEGANTE */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-:root {
-    --primary-color: #2f3e46;
-    --secondary-color: #52796f;
-    --accent-color: #84a98c;
-    --light-color: #cad2c5;
-    --text-color: #333;
-    --text-light: #fff;
-    --error-color: #e63946;
-    --success-color: #2a9d8f;
-    --border-color: #ddd;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
+html, body {
+    height: 100%;
 }
 
-/* ===== ESTRUTURA GERAL ===== */
 body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f1f3f5 0%, #e9ecef 100%);
-    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #edf2f7;
+    color: #2d3748;
     line-height: 1.6;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-}
-
-/* ===== HEADER ===== */
-header {
-    background: linear-gradient(to right, var(--primary-color), #354f52);
-    color: var(--text-light);
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: var(--shadow);
-}
-
-header h1 {
-    font-size: 2rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-/* ===== CONTEÚDO CENTRAL ===== */
-main {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 2rem 1rem;
-    overflow-y: auto;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* ===== CARD (FORM OU TABELA) ===== */
+/* HEADER ELEGANTE */
+header {
+    background-color: #ffffff;
+    padding: 1.75rem 2rem;
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    color: #1a202c;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+/* MAIN CONTENT - CENTRALIZADO E ELEGANTE */
+main {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2.5rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
 .card {
-    background: var(--text-light);
-    padding: 2rem;
-    border-radius: 12px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
     width: 100%;
     max-width: 900px;
-    box-shadow: var(--shadow);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
+    margin: 0 auto;
 }
 
-.card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* ===== TABELA (PÁGINA DE LISTA) ===== */
+/* TABELA ELEGANTE */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 1rem 0;
+    margin-bottom: 2rem;
 }
 
 thead {
-    background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
-    color: var(--text-light);
+    background-color: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
 }
 
-th {
-    padding: 1rem;
+thead th {
+    padding: 1.25rem 1rem;
     text-align: left;
     font-weight: 600;
-    font-size: 0.95rem;
+    color: #4a5568;
+    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border: none;
+    border-bottom: 2px solid #e2e8f0;
 }
 
 tbody tr {
-    border-bottom: 1px solid var(--border-color);
-    transition: var(--transition);
+    border-bottom: 1px solid #edf2f7;
+    transition: background-color 0.2s ease;
 }
 
 tbody tr:hover {
-    background-color: rgba(132, 169, 140, 0.1);
+    background-color: #f8fafc;
 }
 
-td {
-    padding: 1rem;
-    border: none;
+tbody td {
+    padding: 1.25rem 1rem;
+    color: #4a5568;
     vertical-align: middle;
 }
 
-/* ===== COLUNAS ESPECÍFICAS ===== */
-td:nth-child(1) { /* Nome */
+/* BOTÕES DE AÇÃO - LINHA ÚNICA */
+.acoes {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+    min-width: 220px;
+}
+
+.btn-editar, .btn-excluir, .btn-tarefas {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.85rem;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
     font-weight: 500;
-    color: var(--primary-color);
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-td:nth-child(2) { /* Email */
-    color: #555;
-    font-size: 0.95rem;
+.btn-editar {
+    color: #4299e1;
+    border-color: #4299e1;
+    background: white;
 }
 
-td:nth-child(3) { /* Telefone */
-    font-family: 'Courier New', monospace;
-    color: #666;
+.btn-editar:hover {
+    background-color: #4299e1;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(66, 153, 225, 0.2);
 }
 
-td:nth-child(4) { /* Ações */
-    min-width: 150px;
+.btn-excluir {
+    color: #f56565;
+    border-color: #f56565;
+    background: white;
 }
 
-/* ===== BOTÕES DA TABELA ===== */
-button {
-    padding: 0.5rem 1rem;
+.btn-excluir:hover {
+    background-color: #f56565;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(245, 101, 101, 0.2);
+}
+
+.btn-tarefas {
+    color: #38b2ac;
+    border-color: #38b2ac;
+    background: white;
+}
+
+.btn-tarefas:hover {
+    background-color: #38b2ac;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(56, 178, 172, 0.2);
+}
+
+/* BOTÕES PRINCIPAIS */
+.actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+#btnNovo, #btnVoltar {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    transition: all 0.2s ease;
     font-weight: 500;
-    font-size: 0.9rem;
-    transition: var(--transition);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.3rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-button:active {
-    transform: translateY(0);
-}
-
-/* Botão Editar */
-button.editar, 
-button:first-of-type:not([type="submit"]):not([type="button"]) {
-    background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
-    color: white;
-    margin-right: 0.5rem;
-}
-
-button.editar:hover {
-    background: linear-gradient(to right, #476a60, #759b7d);
-}
-
-/* Botão Excluir */
-button.excluir, 
-button:nth-of-type(2):not([type="submit"]):not([type="button"]) {
-    background: linear-gradient(to right, #e63946, #ff6b6b);
+#btnNovo {
+    background-color: #2d3748;
     color: white;
 }
 
-button.excluir:hover {
-    background: linear-gradient(to right, #d32f2f, #ff5252);
+#btnNovo:hover {
+    background-color: #1a202c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Botões de ação principal */
-.actions button {
-    background: linear-gradient(to right, var(--primary-color), #3a5a40);
+#btnVoltar {
+    background-color: #718096;
     color: white;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    margin: 0 0.5rem;
 }
 
-.actions button:hover {
-    background: linear-gradient(to right, #253238, #2d4739);
+#btnVoltar:hover {
+    background-color: #4a5568;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* ===== FORMULÁRIO ===== */
+/* FORMULÁRIOS ELEGANTES */
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
     max-width: 500px;
     margin: 0 auto;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-label {
-    font-weight: 600;
-    color: var(--primary-color);
-    font-size: 0.95rem;
-}
-
-input[type="text"],
-input[type="email"] {
-    padding: 0.75rem 1rem;
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: var(--transition);
-    background-color: #f8f9fa;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    background-color: white;
-    box-shadow: 0 0 0 3px rgba(132, 169, 140, 0.2);
-}
-
-/* ===== BOTÕES DO FORMULÁRIO ===== */
-input[type="submit"],
-input[type="button"] {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    margin-top: 0.5rem;
-}
-
-input[type="submit"] {
-    background: linear-gradient(to right, var(--success-color), #4cb5ab);
-    color: white;
-}
-
-input[type="submit"]:hover {
-    background: linear-gradient(to right, #248277, #3a9a8f);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3);
-}
-
-input[type="button"] {
-    background: linear-gradient(to right, #6c757d, #868e96);
-    color: white;
-    margin-left: 0.5rem;
-}
-
-input[type="button"]:hover {
-    background: linear-gradient(to right, #5a6268, #727b84);
-    transform: translateY(-2px);
-}
-
-/* ===== AÇÕES (BOTÕES ABAIXO DA TABELA) ===== */
-.actions {
-    margin-top: 2rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-/* ===== MENSAGENS ===== */
-.mensagem-carregamento,
-.mensagem-vazia,
-.mensagem-erro {
-    text-align: center;
-    padding: 2rem;
-    font-style: italic;
-    color: #666;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    margin: 1rem 0;
-}
-
-.mensagem-erro {
-    color: var(--error-color);
-    background-color: rgba(230, 57, 70, 0.1);
-    border-left: 4px solid var(--error-color);
-}
-
-.mensagem-vazia a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    font-weight: 600;
-    transition: var(--transition);
-}
-
-.mensagem-vazia a:hover {
-    text-decoration: underline;
-    color: var(--primary-color);
-}
-
-/* ===== FOOTER ===== */
-footer {
-    background: linear-gradient(to right, var(--primary-color), #354f52);
-    color: var(--text-light);
-    padding: 1.5rem;
-    text-align: center;
-    font-size: 0.9rem;
-    margin-top: auto;
-}
-
-footer p {
-    opacity: 0.9;
-}
-
-/* ===== RESPONSIVIDADE ===== */
-@media (max-width: 768px) {
-    .card {
-        padding: 1.5rem;
-        max-width: 95%;
-    }
-    
-    header h1 {
-        font-size: 1.5rem;
-    }
-    
-    table {
-        font-size: 0.9rem;
-    }
-    
-    th, td {
-        padding: 0.75rem 0.5rem;
-    }
-    
-    button {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
-    }
-    
-    .actions {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .actions button {
-        width: 100%;
-        margin: 0.25rem 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .card {
-        padding: 1rem;
-    }
-    
-    table {
-        display: block;
-        overflow-x: auto;
-    }
-    
-    form {
-        gap: 1rem;
-    }
-    
-    input[type="text"],
-    input[type="email"],
-    input[type="submit"],
-    input[type="button"] {
-        padding: 0.6rem;
-    }
-}
-
-/* ===== ANIMAÇÕES ===== */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-tbody tr {
-    animation: fadeIn 0.3s ease-out;
-}
-
-/* ===== ESTADOS ===== */
-button:disabled,
-input:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none !important;
-}
-
-button:disabled:hover {
-    transform: none !important;
-    box-shadow: none !important;
-}
-
-/* ===== ÍCONES (se quiser usar emojis como ícones) ===== */
-button::before {
-    content: '';
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    margin-right: 4px;
-}
-
-button.editar::before {
-    content: '✏️';
-}
-
-button.excluir::before {
-    content: '🗑️';
-}
-
-/* ============================================== */
-/* ===== ESTILOS ESPECÍFICOS PARA TAREFAS ===== */
-/* ============================================== */
-
-/* Container do formulário de tarefas */
 .form-tarefa {
     max-width: 600px;
-    margin: 0 auto;
 }
 
-/* Grupos de campos do formulário */
 .campo-form {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
 }
 
 .campo-form label {
     display: block;
     margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--primary-color);
+    color: #4a5568;
+    font-weight: 500;
     font-size: 0.95rem;
 }
 
-/* Inputs e textareas */
-.campo-form input[type="text"],
-.campo-form input[type="date"],
-.campo-form textarea {
+.campo-obrigatorio::after {
+    content: " *";
+    color: #f56565;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea {
     width: 100%;
-    padding: 0.75rem 1rem;
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
+    padding: 0.875rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
     font-size: 1rem;
-    transition: var(--transition);
-    background-color: #f8f9fa;
-}
-
-.campo-form textarea {
-    min-height: 100px;
-    resize: vertical;
     font-family: inherit;
+    transition: all 0.2s ease;
+    background-color: #f8fafc;
+    color: #2d3748;
 }
 
-.campo-form input[type="text"]:focus,
-.campo-form input[type="date"]:focus,
-.campo-form textarea:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+    border-color: #4299e1;
     outline: none;
-    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
     background-color: white;
-    box-shadow: 0 0 0 3px rgba(132, 169, 140, 0.2);
 }
 
-/* Grupo de radio buttons - COM CORES DIFERENTES */
+textarea {
+    min-height: 130px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+/* RADIO BUTTONS ELEGANTES */
 .grupo-radio {
-    background-color: transparent;
-    padding: 1rem 0;
-    margin: 1.5rem 0;
-    border: none;
+    margin: 1.75rem 0;
+    padding: 1rem;
+    background-color: #f8fafc;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
 }
 
 .grupo-radio p {
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    font-size: 1rem;
+    margin-bottom: 0.875rem;
+    color: #4a5568;
+    font-weight: 500;
 }
 
 .opcoes-radio {
     display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    flex-wrap: wrap;
+    gap: 2.5rem;
 }
 
-/* Opção SIM - Estilo padrão (verde) */
-.opcao-radio.sim {
+.opcao-radio {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    padding: 0.5rem 1.2rem;
-    border-radius: 50px;
-    background-color: #f1f3f5; /* Cor padrão quando não selecionado */
-    transition: var(--transition);
-    border: 2px solid transparent;
+    gap: 0.75rem;
 }
 
-/* Opção NÃO - Estilo padrão (vermelho) */
-.opcao-radio.nao {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    padding: 0.5rem 1.2rem;
-    border-radius: 50px;
-    background-color: #f1f3f5; /* Cor padrão quando não selecionado */
-    transition: var(--transition);
-    border: 2px solid transparent;
-}
-
-/* Hover para ambas */
-.opcao-radio:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Quando SIM está selecionado - VERDE */
-.opcao-radio.sim.checked,
-.opcao-radio.sim input[type="radio"]:checked ~ * {
-    background-color: rgba(8, 255, 226, 0.15); /* Verde claro */
-    border-color: var(--success-color);
-}
-
-/* Quando NÃO está selecionado - VERMELHO */
-.opcao-radio.nao.checked,
-.opcao-radio.nao input[type="radio"]:checked ~ * {
-    background-color: rgba(246, 0, 20, 0.15); /* Vermelho claro */
-    border-color: var(--error-color);
-}
-
-/* Radio buttons - CORES DIFERENTES */
 .opcao-radio input[type="radio"] {
-    width: 22px;
-    height: 22px;
-    margin: 0;
-    cursor: pointer;
-    border: 2px solid #adb5bd;
-    border-radius: 50%;
-    position: relative;
-    transition: var(--transition);
-    background-color: #f1f3f5; /* Cor do fundo do botão */
-}
-
-/* SIM selecionado - ponto VERDE */
-.opcao-radio.sim input[type="radio"]:checked {
-    border-color: var(--success-color);
-    background-color: var(--success-color);
-}
-
-.opcao-radio.sim input[type="radio"]:checked::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
-    background-color: white;
-    border-radius: 50%;
-}
-
-/* NÃO selecionado - ponto VERMELHO */
-.opcao-radio.nao input[type="radio"]:checked {
-    border-color: var(--error-color);
-    background-color: var(--error-color);
-}
-
-.opcao-radio.nao input[type="radio"]:checked::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
-    background-color: white;
-    border-radius: 50%;
-}
-
-/* Labels com cores diferentes quando selecionados */
-.opcao-radio.sim input[type="radio"]:checked + label {
-    color: var(--success-color);
-    font-weight: 600;
-}
-
-.opcao-radio.nao input[type="radio"]:checked + label {
-    color: var(--error-color);
-    font-weight: 600;
+    width: 18px;
+    height: 18px;
+    accent-color: #4299e1;
 }
 
 .opcao-radio label {
-    margin: 0;
     cursor: pointer;
-    font-weight: 500;
-    color: #495057;
+    color: #4a5568;
     font-size: 0.95rem;
-    transition: var(--transition);
-}
-/* Campo de data */
-.campo-data {
-    position: relative;
+    font-weight: 500;
 }
 
-.campo-data input[type="date"] {
-    padding-right: 2.5rem;
-}
-
-.campo-data::after {
-    content: '📅';
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
-}
-
-/* Botão específico de cadastro de tarefa */
-#BtnCad {
-    background: linear-gradient(to right, var(--success-color), #4cb5ab);
-    color: white;
+/* BOTÃO SUBMIT ELEGANTE */
+input[type="submit"] {
     width: 100%;
-    padding: 0.875rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin: 1.5rem 0 1rem 0;
-    transition: var(--transition);
-}
-
-#BtnCad:hover {
-    background: linear-gradient(to right, #248277, #3a9a8f);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3);
-}
-
-#BtnCad:active {
-    transform: translateY(0);
-}
-
-/* Botão Voltar na página de cadastro */
-#btnVoltar {
-    background: linear-gradient(to right, #6c757d, #868e96);
+    padding: 1rem;
+    background-color: #2d3748;
     color: white;
-    width: 100%;
-    padding: 0.875rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
-    transition: var(--transition);
+    transition: all 0.2s ease;
+    margin-top: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#btnVoltar:hover {
-    background: linear-gradient(to right, #5a6268, #727b84);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(108, 117, 125, 0.3);
+input[type="submit"]:hover {
+    background-color: #1a202c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Estados de validação */
-input:invalid,
-textarea:invalid {
-    border-color: var(--error-color);
+/* FOOTER ELEGANTE */
+footer {
+    background-color: #1a202c;
+    padding: 1.5rem;
+    text-align: center;
+    color: #cbd5e0;
+    font-size: 0.9rem;
+    border-top: 1px solid #2d3748;
+    margin-top: auto;
 }
 
-input:valid:focus,
-textarea:valid:focus {
-    border-color: var(--success-color);
+/* ESTADOS E MENSAGENS */
+tr td[colspan] {
+    text-align: center;
+    padding: 3.5rem 1rem !important;
+    color: #718096;
+    font-style: italic;
+    background-color: #f8fafc;
+    border-radius: 6px;
 }
 
-/* Placeholders estilizados */
-::placeholder {
-    color: #adb5bd;
-    opacity: 0.8;
+/* BADGES PARA STATUS */
+.status-concluida {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
 }
 
-/* Responsividade para formulário de tarefas */
+.status-concluida.sim {
+    background-color: #c6f6d5;
+    color: #22543d;
+}
+
+.status-concluida.nao {
+    background-color: #fed7d7;
+    color: #742a2a;
+}
+
+/* RESPONSIVIDADE */
 @media (max-width: 768px) {
-    .form-tarefa {
-        padding: 0 1rem;
+    .card {
+        padding: 1.75rem;
+        margin: 1rem;
     }
     
-    .opcoes-radio {
+    main {
+        padding: 1.5rem 1rem;
+    }
+    
+    .acoes {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .btn-editar,
+    .btn-excluir,
+    .btn-tarefas {
+        width: auto;
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .actions {
+        flex-direction: column;
         gap: 1rem;
     }
     
-    .opcao-radio {
-        padding: 0.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .campo-form input[type="text"],
-    .campo-form input[type="date"],
-    .campo-form textarea {
-        padding: 0.625rem;
-        font-size: 0.95rem;
+    #btnNovo,
+    #btnVoltar {
+        width: 100%;
     }
     
-    .grupo-radio {
-        padding: 0.75rem;
+    .opcoes-radio {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 }
 
-/* Animações específicas para formulário */
-@keyframes slideInForm {
+/* ANIMAÇÕES SUAVES */
+@keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
@@ -720,15 +415,38 @@ textarea:valid:focus {
 }
 
 .card {
-    animation: slideInForm 0.4s ease-out;
+    animation: fadeIn 0.3s ease-out;
 }
 
-/* Indicador de campo obrigatório */
-.campo-obrigatorio::after {
-    content: " *";
-    color: var(--error-color);
+/* SCROLLBAR PERSONALIZADA */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
 }
 
-/* ============================================== */
-/* ===== FIM DOS ESTILOS PARA TAREFAS ===== */
-/* ============================================== */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
+
+/* ADICIONANDO UM GRADIENTE SUAVE NO FUNDO */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    opacity: 0.03;
+    z-index: -1;
+}
